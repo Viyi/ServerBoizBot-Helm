@@ -10,4 +10,4 @@ spec:
         - alias: "serverboizbot"
           imageName: "ghcr.io/viyi/serverboizbot:latest"
           commonUpdateSettings:
-            updateStrategy: newest-build
+            updateStrategy: digest
