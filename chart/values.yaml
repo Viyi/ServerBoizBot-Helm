@@ -13,6 +13,6 @@ app-template:
             - secret: serverboiz-secret
 
   secrets:
-    app-secrets:
+    serverboiz-secrets:
       stringData:
         DISCORD_TOKEN: ""
