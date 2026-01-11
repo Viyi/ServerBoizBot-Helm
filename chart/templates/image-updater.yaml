@@ -9,3 +9,5 @@ spec:
       images:
         - alias: "serverboizbot"
           imageName: "serverboizbot"
+          commonUpdateSettings:
+            updateStrategy: newest-build
