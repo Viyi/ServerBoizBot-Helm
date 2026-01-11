@@ -8,6 +8,6 @@ spec:
     - namePattern: "serverboizbot"
       images:
         - alias: "serverboizbot"
-          imageName: "ghcr.io/viyi/serverboizbot"
+          imageName: "ghcr.io/viyi/serverboizbot:latest"
           commonUpdateSettings:
             updateStrategy: newest-build
