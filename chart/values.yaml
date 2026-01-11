@@ -1,0 +1,18 @@
+app-template:
+  controllers:
+    main:
+      strategy: Recreate
+      containers:
+        main:
+          image:
+            repository: ghcr.io/viyi/serverboizbot:latest
+            tag: latest
+            pullPolicy: Always
+
+          envFrom:
+            - secret: serverboiz-secret
+
+  secrets:
+    app-secrets:
+      stringData:
+        DISCORD_TOKEN: ""
