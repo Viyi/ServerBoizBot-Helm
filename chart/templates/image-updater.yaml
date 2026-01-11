@@ -1,0 +1,13 @@
+apiVersion: argocd-image-updater.argoproj.io/v1alpha1
+kind: ImageUpdater
+metadata:
+  name: serverboiz-image-updater
+spec:
+  namespace: argocd
+  applicationRefs:
+    - namePattern: "serverboizbot"
+      images:
+        - alias: "serverboizbot"
+          imageName: "ghcr.io/viyi/serverboizbot:latest"
+          commonUpdateSettings:
+            updateStrategy: digest
