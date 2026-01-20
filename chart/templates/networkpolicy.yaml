@@ -5,7 +5,7 @@ metadata:
 spec:
   podSelector:
     matchLabels:
-      app: isolated-pod
+      app.kubernetes.io/instance: serverboizbot
   policyTypes:
   - Egress
   egress:
