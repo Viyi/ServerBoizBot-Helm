@@ -1,4 +1,7 @@
-name: deny-lan-allow-internet
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: deny-lan-allow-internet
 spec:
   podSelector:
     matchLabels:
@@ -6,24 +9,17 @@ spec:
   policyTypes:
   - Egress
   egress:
-  # 1. Allow DNS resolution
+  # 1. Allow DNS resolution (Internal)
+  # Without this, the pod can't resolve google.com to an IP
   - ports:
     - protocol: UDP
       port: 53
     - protocol: TCP
       port: 53
-
-  # 2. Allow specific internal destination (The Exception)
-  - to:
-    - ipBlock:
-        cidr: 10.0.0.177/32
-    ports:
-    - protocol: TCP
-      port: 8000
-
-  # 3. Allow all IPs EXCEPT the Private LAN ranges
+  # 2. Allow all IPs EXCEPT the Private LAN ranges
   - to:
     - ipBlock:
         cidr: 0.0.0.0/0
         except:
         - 10.0.0.0/8
+        
